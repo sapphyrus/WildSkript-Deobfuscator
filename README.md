@@ -1,5 +1,5 @@
 # WildSkript-Deobfuscator
-Tool to deobfuscate Wildskript encrypted scripts. (Like the name suggests)
+Tool to deobfuscate Wildskript encrypted scripts with support for bruteforcing the power.
 
 ### Preview
 ![Preview](https://dl.sapphyrus.xyz/96pzhmesft2gyoj1/)
@@ -12,18 +12,18 @@ Tool to deobfuscate Wildskript encrypted scripts. (Like the name suggests)
 
 ### Download:
 
-[Relases](https://github.com/sapphyrus/WildSkript-Deobfuscator/releases)
+Download the latest [Relase](https://github.com/sapphyrus/WildSkript-Deobfuscator/releases) for a compiled version of the script.
 
 ### Usage:
 ```sh
-$ ruby deobfuscate.rb [FILE] [POWER]
+$ deobfuscate.exe [FILE] [POWER]
 ```
 ex.
 ```sh
-$ ruby deobfuscate.rb NoCombatHacks.txt 70
+$ deobfuscate.exe NoCombatHacks.txt 70
 ```
 
 To bruteforce the power use
 ```sh
-$ ruby deobfuscate.rb [FILE]
+$ deobfuscate.exe [FILE]
 ```
