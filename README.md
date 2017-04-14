@@ -2,21 +2,19 @@
 Tool to deobfuscate Wildskript encrypted scripts with support for bruteforcing the power.
 
 ### Preview
-![Preview](https://dl.sapphyrus.xyz/96pzhmesft2gyoj1/)
+![Preview](http://i.imgur.com/vry0Luv.gif)
 
-# Before:
-![Before](https://dl.sapphyrus.xyz/lx3apc4in6hdvrq8/)
-
-# After:
-![After](https://dl.sapphyrus.xyz/sw7dieg1xu4tbz6l/)
+### How it works:
+First, this tool unpacks the packed file which is actually a ´.zip´ containing a file named ´tmp.ws´. That file contains every character code multiplied with the power separated by a ´-´, so it just divides each character code by the power and converts it back into a character.
 
 ### Download:
 
-Download the latest [Relase](https://github.com/sapphyrus/WildSkript-Deobfuscator/releases) for a compiled version of the script.
+Windows: [deobfuscate.exe](https://raw.githubusercontent.com/sapphyrus/WildSkript-Deobfuscator/master/deobfuscate.exe)
+All OS (Requires a ruby installation): [deobfuscate.rb](https://raw.githubusercontent.com/sapphyrus/WildSkript-Deobfuscator/master/deobfuscate.rb) (Right click -> Save as)
 
 ### Usage:
 ```sh
-$ deobfuscate.exe [FILE] [POWER]
+$ deobfuscate.exe [FILENAME] [POWER]
 ```
 ex.
 ```sh

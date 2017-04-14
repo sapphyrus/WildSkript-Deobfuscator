@@ -18,11 +18,15 @@ def unzip_file (file, destination)
   }
 end
 
-puts "Extracting #{filename}..."
-unzip_file(filename, "temp")
+puts "Unpacking '#{filename}'"
+begin
+    unzip_file(filename, "temp")
+rescue
+    puts "Failed to unpack the file. Check if the file exists and if u have write permissions to the working directory."
+    exit
+end
 
 def deobfuscate(power, warnings)
-
     skript = ""
     last5chars = "     "
     errors = 0
@@ -51,10 +55,10 @@ def deobfuscate(power, warnings)
 end
 
 if power != 0
-    puts "Deobfuscating #{filename} with power #{power.to_i}..."
+    puts "Deobfuscating '#{filename}' with power #{power.to_i}"
     skript, errors = deobfuscate(power, true)
 else
-    puts "Bruteforcing #{filename}...\n\n"
+    puts "Power not set, attempting to brute-force '#{filename}'\n\n"
     found = false
     power = 1
     while found == false
@@ -63,21 +67,21 @@ else
         print "\r                                                                 "
         if (skript.include? "\n") && (skript.include? " ") && (skript.include? ":\n") && (errors == 0) && (skript.include? "\non")
             found = true
-            print "\rTrying power #{power.to_i}... -> correct!"
+            print "\rTrying power #{power.to_i} -> correct (#{errors} Errors)"
             puts ""
-            puts "Deobfuscating #{filename} with power #{power.to_i}..."
+            puts "Deobfuscating #{filename} with power #{power.to_i}"
             skript, errors = deobfuscate(power, true)
         else
-            print "\rTrying power #{power.to_i}... -> wrong (#{errors} Errors)"
+            print "\rTrying power #{power.to_i} -> wrong (#{errors} Errors)"
         end
         
     end
 end
 
 FileUtils.remove_dir("temp")
-open("#{filename}_deobf.sk", 'w') { |f|
+open("#{filename}_unpacked.sk", 'w') { |f|
     f.puts "#{skript}"
 }
 
 puts ""
-puts "Output saved as #{filename}_deobf.sk"
+puts "Output saved as '#{filename}_unpacked.sk'"
